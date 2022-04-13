@@ -4573,11 +4573,17 @@ jQuery(document).ready(function($) {
 						return lumise.actions.do('key-enter', e);
 
 					if (e.metaKey === true || e.ctrlKey === true) {
-						
-						if (e.keyCode === 90) {
-							if (e.shiftKey === false)
+						console.log("TADAA");
+						e.preventDefault();
+						e.stopPropagation();
+
+						if (e.keyCode === 90 || e.keyCode === 67) {
+							if (e.shiftKey === false){
+								console.log("TADAA");
+								e.preventDefault();
+								e.stopPropagation();
 								return lumise.actions.do('ctrl-z');
-							else return lumise.actions.do('ctrl-shift-z');
+							} else return lumise.actions.do('ctrl-shift-z');
 						}else if (e.keyCode === 83) {
 							if (e.shiftKey === true)
 								return lumise.actions.do('ctrl-shift-s', e);
@@ -4589,7 +4595,7 @@ jQuery(document).ready(function($) {
 						else if (e.keyCode === 69)
 							return lumise.actions.do('ctrl-e', e);
 
-					};
+					}
 
 					if (e.keyCode === 27)
 						return lumise.actions.do('key-esc');
